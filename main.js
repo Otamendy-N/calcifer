@@ -1,5 +1,8 @@
 let img = null
 let clust = []
+let x = 200
+let y = 200
+let velocity = 10
 
 function preload() {
   img = loadImage('./texture32.png')
@@ -14,8 +17,24 @@ function draw() {
   background(40);
   blendMode(ADD);
 
+  if (keyIsDown(LEFT_ARROW)) {
+    x -= velocity;
+  }
+
+  if (keyIsDown(RIGHT_ARROW)) {
+    x += velocity;
+  }
+
+  if (keyIsDown(UP_ARROW)) {
+    y -= velocity;
+  }
+
+  if (keyIsDown(DOWN_ARROW)) {
+    y += velocity;
+  }
+
   for(let i = 0; i < 1; i++) {
-    let particle = new Particle(mouseX, mouseY)
+    let particle = new Particle(x, y)
     clust.push(particle)
   }
 
